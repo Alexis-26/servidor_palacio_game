@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cflq60x7exhb"]
+
+[ext_resource type="Texture2D" uid="uid://c82sb4rlywarm" path="res://assets/Next_button_up.png" id="1_cd8yq"]
+[ext_resource type="Texture2D" uid="uid://fhvbxudtnajs" path="res://assets/Next_button_down.png" id="2_suelp"]
+
+[node name="PasarTurno" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_cd8yq")
+texture_pressed = ExtResource("2_suelp")

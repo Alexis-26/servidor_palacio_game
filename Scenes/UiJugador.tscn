@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://ws2ut1ciekru"]
+
+[ext_resource type="PackedScene" uid="uid://bru7cexj0m01f" path="res://Scenes/Card.tscn" id="1_43vo6"]
+[ext_resource type="Script" uid="uid://jf51vs8nxpr4" path="res://Scripts/ui_jugador.gd" id="1_gplc5"]
+[ext_resource type="PackedScene" uid="uid://cflq60x7exhb" path="res://Scenes/PasarTurno.tscn" id="1_h1xas"]
+[ext_resource type="PackedScene" uid="uid://bqstb11tjymw7" path="res://Scenes/TomarCartas.tscn" id="2_5j7q8"]
+[ext_resource type="PackedScene" uid="uid://bx03s7l38yl2x" path="res://Scenes/Deck.tscn" id="4_gplc5"]
+[ext_resource type="PackedScene" uid="uid://cribcvgrcjr3r" path="res://Scenes/Descarte.tscn" id="5_cboke"]
+
+[node name="UiJugador" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gplc5")
+
+[node name="Mano" type="Node2D" parent="."]
+position = Vector2(500, 700)
+
+[node name="Card" parent="Mano" instance=ExtResource("1_43vo6")]
+visible = false
+
+[node name="CartasAbajo" type="Node2D" parent="."]
+position = Vector2(530, 520)
+
+[node name="Card" parent="CartasAbajo" instance=ExtResource("1_43vo6")]
+visible = false
+
+[node name="CartasArriba" type="Node2D" parent="."]
+position = Vector2(500, 530)
+
+[node name="Card" parent="CartasArriba" instance=ExtResource("1_43vo6")]
+visible = false
+
+[node name="PasarTurno" parent="." instance=ExtResource("1_h1xas")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 850.0
+offset_top = 500.0
+offset_right = 914.0
+offset_bottom = 564.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="TomarCartas" parent="." instance=ExtResource("2_5j7q8")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 350.0
+offset_top = 500.0
+offset_right = 414.0
+offset_bottom = 564.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="TurnoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 21.0
+offset_right = 623.0
+offset_bottom = 44.0
+
+[node name="Deck" parent="." instance=ExtResource("4_gplc5")]
+position = Vector2(420, 300)
+
+[node name="Descarte" parent="." instance=ExtResource("5_cboke")]
+position = Vector2(640, 360)
+
+[node name="Card" parent="Descarte" instance=ExtResource("1_43vo6")]
+visible = false
