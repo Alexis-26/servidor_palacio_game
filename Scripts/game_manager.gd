@@ -264,46 +264,48 @@ func get_card_value(card_name):
 		_:
 			return int(value_str)
 
-func play_card(peer_id, cartas):
-	print("VALIDANDO LA JUGADA RECIBIDA: ", cartas)
-	print("MANDADO POR EL USUARIO", peer_id)
-	var jugada_valida = false
-	var cartas_a_eliminar_de_mano = []
-	for jugador in jugadores:
-		if peer_id == jugador["peer_id"]:
-			var mano = jugador["mano"]
-			var cartas_abajo = jugador["cartas_abajo"]
-			var cartas_arriba = jugador["cartas_arriba"]
-			for carta_id in cartas:
-				for carta in mano:
-					if carta_id == carta["id"]:
-						print("ENCONTRE LA CARTA: ", carta["name"])
-						var opcion = validacion_jugada(carta)
-						if opcion == 0 or opcion == 2 or opcion == 4:
-							descarte_dict.append(carta)
-							cartas_a_eliminar_de_mano.append(carta)
-							jugada_valida = true
-						elif opcion == 1 or opcion == 3:
-							descarte_dict.append(carta)
-							cartas_a_eliminar_de_mano.append(carta)
-							descarte_dict.clear()
-							jugada_valida = true
-						elif opcion == 5:
-							jugada_valida = false
-						break
-						
-			# Una vez fuera del bucle de cartas en mano, eliminamos las cartas marcadas
-			for carta_a_eliminar in cartas_a_eliminar_de_mano:
-				mano.erase(carta_a_eliminar)
-				
-	if jugada_valida:
-		for jugador in jugadores:
-			var id = jugador["peer_id"]
-			Bridge.rpc_id(id, "respuesta_accept_juego", descarte_dict, jugadores)
-			print("Enviando datos de cartas a peer_id: ", id)
-	else:
-		var mensaje = "NO PUEDES HACER ESO"
-		Bridge.rpc_id(peer_id, "respuesta_rechazada_juego", mensaje)
+#func play_card(peer_id, cartas):
+	#print("VALIDANDO LA JUGADA RECIBIDA: ", cartas)
+	#print("MANDADO POR EL USUARIO", peer_id)
+	#var jugada_valida = false
+	#var cartas_a_eliminar_de_mano = []
+	#
+	#for jugador in jugadores:
+		#if peer_id == jugador["peer_id"]:
+			#var mano = jugador["mano"]
+			#var cartas_abajo = jugador["cartas_abajo"]
+			#var cartas_arriba = jugador["cartas_arriba"]
+			#for carta_id in cartas:
+				#for carta in mano:
+					#if carta_id == carta["id"]:
+						#print("ENCONTRE LA CARTA: ", carta["name"])
+						#var opcion = validacion_jugada(carta)
+						#if opcion == 0 or opcion == 2 or opcion == 4:
+							#descarte_dict.append(carta)
+							#cartas_a_eliminar_de_mano.append(carta)
+							#jugada_valida = true
+						#elif opcion == 1 or opcion == 3:
+							#descarte_dict.append(carta)
+							#cartas_a_eliminar_de_mano.append(carta)
+							#descarte_dict.clear()
+							#jugada_valida = true
+						#elif opcion == 5:
+							#jugada_valida = false
+						#break
+						#
+			## Una vez fuera del bucle de cartas en mano, eliminamos las cartas marcadas
+			#for carta_a_eliminar in cartas_a_eliminar_de_mano:
+				#mano.erase(carta_a_eliminar)
+				#
+	#if jugada_valida:
+		#for jugador in jugadores:
+			#var id = jugador["peer_id"]
+			#Bridge.rpc_id(id, "respuesta_accept_juego", descarte_dict, jugadores)
+			#print("Enviando datos de cartas a peer_id: ", id)
+	#else:
+		#var mensaje = "NO PUEDES HACER ESO"
+		#Bridge.rpc_id(peer_id, "respuesta_rechazada_juego", mensaje)
+	########################################################################
 				#for carta in cartas_arriba:
 					#if carta_id == carta["id"]:
 						#print("ENCONTRE LA CARTA: ", carta["name"])
@@ -312,14 +314,77 @@ func play_card(peer_id, cartas):
 					#if carta_id == carta["id"]:
 						#print("ENCONTRE LA CARTA: ", carta["name"])
 						#break
+						
+func play_card(peer_id, cartas_ids):
+	print("VALIDANDO LA JUGADA RECIBIDA: ", cartas_ids)
+	print("MANDADO POR EL USUARIO", peer_id)
+	var jugada_valida = false
+	var cartas_a_eliminar_de_mano = []
+	var cartas_jugadas = []
+
+	for jugador in jugadores:
+		if peer_id == jugador["peer_id"]:
+			var mano = jugador["mano"]
+
+			# Buscar las cartas en la mano del jugador
+			for carta_id in cartas_ids:
+				for carta in mano:
+					if carta_id == carta["id"]:
+						cartas_jugadas.append(carta)
+						break
+
+			# Validar que todas las cartas sean del mismo valor
+			if not validar_cartas_iguales(cartas_jugadas):
+				print("❌ Las cartas jugadas no tienen el mismo valor.")
+				break
+
+			# Validar jugada usando una de las cartas (ya sabemos que son iguales)
+			var opcion = validacion_jugada(cartas_jugadas[0])
+
+			if opcion == 0 or opcion == 2 or opcion == 4:
+				for carta in cartas_jugadas:
+					descarte_dict.append(carta)
+					cartas_a_eliminar_de_mano.append(carta)
+				jugada_valida = true
+
+			elif opcion == 1 or opcion == 3:
+				for carta in cartas_jugadas:
+					descarte_dict.append(carta)
+					cartas_a_eliminar_de_mano.append(carta)
+				descarte_dict.clear()
+				jugada_valida = true
+
+			elif opcion == 5:
+				print("❌ La jugada no es válida (valor menor al MJ).")
+				jugada_valida = false
+
+			# Verificar si hay 4 del mismo valor (MJ + jugada)
+			if jugada_valida:
+				var valor = get_card_value(cartas_jugadas[0]["name"])
+				var total_iguales = contar_cartas_mismo_valor_en_mj(valor)
+				if total_iguales == 4:
+					print("✅ Se han jugado 4 cartas iguales. Vaciar MJ.")
+					descarte_dict.clear()
+
+			# Eliminar cartas de la mano
+			for carta in cartas_a_eliminar_de_mano:
+				mano.erase(carta)
+
+	# Enviar respuesta a todos los jugadores
+	if jugada_valida:
+		for jugador in jugadores:
+			Bridge.rpc_id(jugador["peer_id"], "respuesta_accept_juego", descarte_dict, jugadores)
+	else:
+		Bridge.rpc_id(peer_id, "respuesta_rechazada_juego", "NO PUEDES HACER ESO")
+
 	
 func validacion_jugada(carta):
-	var ultima_carta_descarte = 0
 	var valor_carta = get_card_value(carta["name"])
-	if descarte_dict == []:
-		ultima_carta_descarte = 0
-	else:
-		pass
+	var ultima_carta_descarte = 0
+	
+	if descarte_dict.size() > 0:
+		var ultima_carta = descarte_dict[descarte_dict.size() - 1]
+		ultima_carta_descarte = get_card_value(ultima_carta["name"])
 
 	if ultima_carta_descarte == 0:
 		print("JUGANDO LA(S) CARTA(S)")
@@ -339,4 +404,53 @@ func validacion_jugada(carta):
 	elif valor_carta < ultima_carta_descarte:
 		print("NO PUEDES JUGAR ESTA CARTA")
 		return 5
-		
+
+func validar_cartas_iguales(cartas):
+	if cartas.size() == 0:
+		return false
+	var primer_valor = get_card_value(cartas[0]["name"])
+	for carta in cartas:
+		if get_card_value(carta["name"]) != primer_valor:
+			return false
+	return true
+	
+func contar_cartas_mismo_valor_en_mj(valor_objetivo):
+	var contador = 0
+	for carta in descarte_dict:
+		if get_card_value(carta["name"]) == valor_objetivo:
+			contador += 1
+	return contador
+
+func _ready():
+	print("--- INICIANDO PRUEBA DE 4 CARTAS IGUALES ---")
+
+	# Simular un jugador
+	var jugador_prueba = {
+		"peer_id": 1,
+		"mano": [],
+		"cartas_abajo": [],
+		"cartas_arriba": [],
+		"nodo": null
+	}
+
+	# Crear 4 cartas del mismo valor
+	var carta1 = {"id": 201, "name": "7 de clubs", "texture": ""}
+	var carta2 = {"id": 202, "name": "7 de hearts", "texture": ""}
+	var carta3 = {"id": 203, "name": "7 de spades", "texture": ""}
+	var carta4 = {"id": 204, "name": "7 de diamonds", "texture": ""}
+	jugador_prueba["mano"].append_array([carta1, carta2, carta3, carta4])
+
+	# Añadir el jugador a la lista
+	jugadores.clear()
+	jugadores.append(jugador_prueba)
+
+	# Simular que el monto actual tiene varias cartas (simulando un MJ lleno)
+	descarte_dict.clear()
+	descarte_dict.append_array([
+	])
+
+	# Ejecutar la jugada con las 4 cartas iguales
+	var cartas_para_jugar = [201, 202, 203, 204]  # IDs de las cartas 7
+	play_card(1, cartas_para_jugar)
+
+	print("--- FIN DE LA PRUEBA DE 4 IGUALES ---")
