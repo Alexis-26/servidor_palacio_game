@@ -1,58 +1,58 @@
 extends Node2D
 
 var deck = [
-	{"id": 1, "name": "As de clubs", "texture": "res://assets/Cards (large)/card_clubs_A.png"},
-	{"id": 2, "name": "2 de clubs", "texture": "res://assets/Cards (large)/card_clubs_02.png"},
-	{"id": 3, "name": "3 de clubs", "texture": "res://assets/Cards (large)/card_clubs_03.png"},
-	{"id": 4, "name": "4 de clubs", "texture": "res://assets/Cards (large)/card_clubs_04.png"},
-	{"id": 5, "name": "5 de clubs", "texture": "res://assets/Cards (large)/card_clubs_05.png"},
-	{"id": 6, "name": "6 de clubs", "texture": "res://assets/Cards (large)/card_clubs_06.png"},
-	{"id": 7, "name": "7 de clubs", "texture": "res://assets/Cards (large)/card_clubs_07.png"},
-	{"id": 8, "name": "8 de clubs", "texture": "res://assets/Cards (large)/card_clubs_08.png"},
-	{"id": 9, "name": "9 de clubs", "texture": "res://assets/Cards (large)/card_clubs_09.png"},
-	{"id": 10, "name": "10 de clubs", "texture": "res://assets/Cards (large)/card_clubs_10.png"},
-	{"id": 11, "name": "J de clubs", "texture": "res://assets/Cards (large)/card_clubs_J.png"},
-	{"id": 12, "name": "Q de clubs", "texture": "res://assets/Cards (large)/card_clubs_Q.png"},
-	{"id": 13, "name": "K de clubs", "texture": "res://assets/Cards (large)/card_clubs_K.png"},
-	{"id": 14, "name": "As de diamons", "texture": "res://assets/Cards (large)/card_diamonds_A.png"},
-	{"id": 15, "name": "2 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_02.png"},
-	{"id": 16, "name": "3 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_03.png"},
-	{"id": 17, "name": "4 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_04.png"},
-	{"id": 18, "name": "5 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_05.png"},
-	{"id": 19, "name": "6 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_06.png"},
-	{"id": 20, "name": "7 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_07.png"},
-	{"id": 21, "name": "8 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_08.png"},
-	{"id": 22, "name": "9 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_09.png"},
-	{"id": 23, "name": "10 de diamons", "texture": "res://assets/Cards (large)/card_diamonds_10.png"},
-	{"id": 24, "name": "J de diamons", "texture": "res://assets/Cards (large)/card_diamonds_J.png"},
-	{"id": 25, "name": "Q de diamons", "texture": "res://assets/Cards (large)/card_diamonds_Q.png"},
-	{"id": 26, "name": "K de diamons", "texture": "res://assets/Cards (large)/card_diamonds_K.png"},
-	{"id": 27, "name": "As de hearts", "texture": "res://assets/Cards (large)/card_hearts_A.png"},
-	{"id": 28, "name": "2 de hearts", "texture": "res://assets/Cards (large)/card_hearts_02.png"},
-	{"id": 29, "name": "3 de hearts", "texture": "res://assets/Cards (large)/card_hearts_03.png"},
-	{"id": 30, "name": "4 de hearts", "texture": "res://assets/Cards (large)/card_hearts_04.png"},
-	{"id": 31, "name": "5 de hearts", "texture": "res://assets/Cards (large)/card_hearts_05.png"},
-	{"id": 32, "name": "6 de hearts", "texture": "res://assets/Cards (large)/card_hearts_06.png"},
-	{"id": 33, "name": "7 de hearts", "texture": "res://assets/Cards (large)/card_hearts_07.png"},
-	{"id": 34, "name": "8 de hearts", "texture": "res://assets/Cards (large)/card_hearts_08.png"},
-	{"id": 35, "name": "9 de hearts", "texture": "res://assets/Cards (large)/card_hearts_09.png"},
-	{"id": 36, "name": "10 de hearts", "texture": "res://assets/Cards (large)/card_hearts_10.png"},
-	{"id": 37, "name": "J de hearts", "texture": "res://assets/Cards (large)/card_hearts_J.png"},
-	{"id": 38, "name": "Q de hearts", "texture": "res://assets/Cards (large)/card_hearts_Q.png"},
-	{"id": 39, "name": "K de hearts", "texture": "res://assets/Cards (large)/card_hearts_K.png"},
-	{"id": 40, "name": "As de spades", "texture": "res://assets/Cards (large)/card_spades_A.png"},
-	{"id": 41, "name": "2 de spades", "texture": "res://assets/Cards (large)/card_spades_02.png"},
-	{"id": 42, "name": "3 de spades", "texture": "res://assets/Cards (large)/card_spades_03.png"},
-	{"id": 43, "name": "4 de spades", "texture": "res://assets/Cards (large)/card_spades_04.png"},
-	{"id": 44, "name": "5 de spades", "texture": "res://assets/Cards (large)/card_spades_05.png"},
-	{"id": 45, "name": "6 de spades", "texture": "res://assets/Cards (large)/card_spades_06.png"},
-	{"id": 46, "name": "7 de spades", "texture": "res://assets/Cards (large)/card_spades_07.png"},
-	{"id": 47, "name": "8 de spades", "texture": "res://assets/Cards (large)/card_spades_08.png"},
-	{"id": 48, "name": "9 de spades", "texture": "res://assets/Cards (large)/card_spades_09.png"},
-	{"id": 49, "name": "10 de spades", "texture": "res://assets/Cards (large)/card_spades_10.png"},
-	{"id": 50, "name": "J de spades", "texture": "res://assets/Cards (large)/card_spades_J.png"},
-	{"id": 51, "name": "Q de spades", "texture": "res://assets/Cards (large)/card_spades_Q.png"},
-	{"id": 52, "name": "K de spades", "texture": "res://assets/Cards (large)/card_spades_K.png"},
+	{"id": 1, "name": "As de clubs", "value": 14 , "texture": "res://assets/Cards (large)/card_clubs_A.png"},
+	{"id": 2, "name": "2 de clubs", "value": 2 ,"texture": "res://assets/Cards (large)/card_clubs_02.png"},
+	{"id": 3, "name": "3 de clubs", "value": 3 ,"texture": "res://assets/Cards (large)/card_clubs_03.png"},
+	{"id": 4, "name": "4 de clubs", "value": 4 ,"texture": "res://assets/Cards (large)/card_clubs_04.png"},
+	{"id": 5, "name": "5 de clubs", "value": 5 ,"texture": "res://assets/Cards (large)/card_clubs_05.png"},
+	{"id": 6, "name": "6 de clubs", "value": 6 ,"texture": "res://assets/Cards (large)/card_clubs_06.png"},
+	{"id": 7, "name": "7 de clubs", "value": 7 ,"texture": "res://assets/Cards (large)/card_clubs_07.png"},
+	{"id": 8, "name": "8 de clubs", "value": 8 ,"texture": "res://assets/Cards (large)/card_clubs_08.png"},
+	{"id": 9, "name": "9 de clubs", "value": 9 ,"texture": "res://assets/Cards (large)/card_clubs_09.png"},
+	{"id": 10, "name": "10 de clubs", "value": 10 ,"texture": "res://assets/Cards (large)/card_clubs_10.png"},
+	{"id": 11, "name": "J de clubs", "value": 11 ,"texture": "res://assets/Cards (large)/card_clubs_J.png"},
+	{"id": 12, "name": "Q de clubs", "value": 12 ,"texture": "res://assets/Cards (large)/card_clubs_Q.png"},
+	{"id": 13, "name": "K de clubs", "value": 13 ,"texture": "res://assets/Cards (large)/card_clubs_K.png"},
+	{"id": 14, "name": "As de diamons", "value": 14 ,"texture": "res://assets/Cards (large)/card_diamonds_A.png"},
+	{"id": 15, "name": "2 de diamons", "value": 2 ,"texture": "res://assets/Cards (large)/card_diamonds_02.png"},
+	{"id": 16, "name": "3 de diamons", "value": 3 ,"texture": "res://assets/Cards (large)/card_diamonds_03.png"},
+	{"id": 17, "name": "4 de diamons", "value": 4 ,"texture": "res://assets/Cards (large)/card_diamonds_04.png"},
+	{"id": 18, "name": "5 de diamons", "value": 5 ,"texture": "res://assets/Cards (large)/card_diamonds_05.png"},
+	{"id": 19, "name": "6 de diamons", "value": 6 ,"texture": "res://assets/Cards (large)/card_diamonds_06.png"},
+	{"id": 20, "name": "7 de diamons", "value": 7 ,"texture": "res://assets/Cards (large)/card_diamonds_07.png"},
+	{"id": 21, "name": "8 de diamons", "value": 8 ,"texture": "res://assets/Cards (large)/card_diamonds_08.png"},
+	{"id": 22, "name": "9 de diamons", "value": 9 ,"texture": "res://assets/Cards (large)/card_diamonds_09.png"},
+	{"id": 23, "name": "10 de diamons", "value": 10 ,"texture": "res://assets/Cards (large)/card_diamonds_10.png"},
+	{"id": 24, "name": "J de diamons", "value": 11 ,"texture": "res://assets/Cards (large)/card_diamonds_J.png"},
+	{"id": 25, "name": "Q de diamons", "value": 12 ,"texture": "res://assets/Cards (large)/card_diamonds_Q.png"},
+	{"id": 26, "name": "K de diamons", "value": 13 ,"texture": "res://assets/Cards (large)/card_diamonds_K.png"},
+	{"id": 27, "name": "As de hearts", "value": 14 ,"texture": "res://assets/Cards (large)/card_hearts_A.png"},
+	{"id": 28, "name": "2 de hearts", "value": 2 ,"texture": "res://assets/Cards (large)/card_hearts_02.png"},
+	{"id": 29, "name": "3 de hearts", "value": 3 ,"texture": "res://assets/Cards (large)/card_hearts_03.png"},
+	{"id": 30, "name": "4 de hearts", "value": 4 ,"texture": "res://assets/Cards (large)/card_hearts_04.png"},
+	{"id": 31, "name": "5 de hearts", "value": 5 ,"texture": "res://assets/Cards (large)/card_hearts_05.png"},
+	{"id": 32, "name": "6 de hearts", "value": 6 ,"texture": "res://assets/Cards (large)/card_hearts_06.png"},
+	{"id": 33, "name": "7 de hearts", "value": 7 ,"texture": "res://assets/Cards (large)/card_hearts_07.png"},
+	{"id": 34, "name": "8 de hearts", "value": 8 ,"texture": "res://assets/Cards (large)/card_hearts_08.png"},
+	{"id": 35, "name": "9 de hearts", "value": 9 ,"texture": "res://assets/Cards (large)/card_hearts_09.png"},
+	{"id": 36, "name": "10 de hearts", "value": 10 ,"texture": "res://assets/Cards (large)/card_hearts_10.png"},
+	{"id": 37, "name": "J de hearts", "value": 11 ,"texture": "res://assets/Cards (large)/card_hearts_J.png"},
+	{"id": 38, "name": "Q de hearts", "value": 12 ,"texture": "res://assets/Cards (large)/card_hearts_Q.png"},
+	{"id": 39, "name": "K de hearts", "value": 13 ,"texture": "res://assets/Cards (large)/card_hearts_K.png"},
+	{"id": 40, "name": "As de spades", "value": 14 ,"texture": "res://assets/Cards (large)/card_spades_A.png"},
+	{"id": 41, "name": "2 de spades", "value": 2 ,"texture": "res://assets/Cards (large)/card_spades_02.png"},
+	{"id": 42, "name": "3 de spades", "value": 3 ,"texture": "res://assets/Cards (large)/card_spades_03.png"},
+	{"id": 43, "name": "4 de spades", "value": 4 ,"texture": "res://assets/Cards (large)/card_spades_04.png"},
+	{"id": 44, "name": "5 de spades", "value": 5 ,"texture": "res://assets/Cards (large)/card_spades_05.png"},
+	{"id": 45, "name": "6 de spades", "value": 6 ,"texture": "res://assets/Cards (large)/card_spades_06.png"},
+	{"id": 46, "name": "7 de spades", "value": 7 ,"texture": "res://assets/Cards (large)/card_spades_07.png"},
+	{"id": 47, "name": "8 de spades", "value": 8 ,"texture": "res://assets/Cards (large)/card_spades_08.png"},
+	{"id": 48, "name": "9 de spades", "value": 9 ,"texture": "res://assets/Cards (large)/card_spades_09.png"},
+	{"id": 49, "name": "10 de spades", "value": 10 ,"texture": "res://assets/Cards (large)/card_spades_10.png"},
+	{"id": 50, "name": "J de spades", "value": 11 ,"texture": "res://assets/Cards (large)/card_spades_J.png"},
+	{"id": 51, "name": "Q de spades", "value": 12 ,"texture": "res://assets/Cards (large)/card_spades_Q.png"},
+	{"id": 52, "name": "K de spades", "value": 13 ,"texture": "res://assets/Cards (large)/card_spades_K.png"},
 ]
 var descarte_dict = []
 var jugadores = []
@@ -247,22 +247,8 @@ func repartir_cartas():
 #func recibir_datos(datos_player):
 	#print("📦 Cliente recibió sus datos:", datos_player)
 
-func get_card_value(card_name):
-	#var name = card.card_name
-	var parts = card_name.split(" ")
-	var value_str = parts[0]
-	
-	match value_str:
-		"As":
-			return 14
-		"J":
-			return 11
-		"Q":
-			return 12
-		"K":
-			return 13
-		_:
-			return int(value_str)
+func get_card_value(card):
+	return card["value"]
 
 #func play_card(peer_id, cartas):
 	#print("VALIDANDO LA JUGADA RECIBIDA: ", cartas)
@@ -319,7 +305,7 @@ func play_card(peer_id, cartas_ids):
 	print("VALIDANDO LA JUGADA RECIBIDA: ", cartas_ids)
 	print("MANDADO POR EL USUARIO", peer_id)
 	var jugada_valida = false
-	var cartas_a_eliminar_de_mano = []
+	var cartas_a_eliminar = []
 	var cartas_jugadas = []
 
 	for jugador in jugadores:
@@ -333,124 +319,146 @@ func play_card(peer_id, cartas_ids):
 						cartas_jugadas.append(carta)
 						break
 
-			# Validar que todas las cartas sean del mismo valor
-			if not validar_cartas_iguales(cartas_jugadas):
-				print("❌ Las cartas jugadas no tienen el mismo valor.")
+			# Separar doses y otras cartas
+			var cartas_dos = []
+			var otras_cartas = []
+			for carta in cartas_jugadas:
+				if carta["value"] == 2:
+					cartas_dos.append(carta)
+				else:
+					otras_cartas.append(carta)
+
+			# Validar que las otras cartas sean iguales
+			if otras_cartas.size() > 0 and not validar_cartas_iguales(otras_cartas):
+				print("❌ Las cartas no son iguales (excluyendo los doses).")
 				break
 
-			# Validar jugada usando una de las cartas (ya sabemos que son iguales)
-			var opcion = validacion_jugada(cartas_jugadas[0])
+			# Acomodar jugada: doses primero
+			var jugada_ordenada = cartas_dos + otras_cartas
 
-			if opcion == 0 or opcion == 2 or opcion == 4:
-				for carta in cartas_jugadas:
+			# Validar jugada con lógica especial si hay doses
+			var carta_base = otras_cartas[0] if otras_cartas.size() > 0 else cartas_dos[0]
+			var usar_regla_flexible = cartas_dos.size() > 0
+			var opcion = validacion_jugada(carta_base, usar_regla_flexible)
+
+			# Validar si serán 4 iguales ANTES de meter las cartas al MJ
+			var limpiar_mj = false
+			if otras_cartas.size() > 0:
+				var valor = otras_cartas[0]["value"]
+				if valor != 2 and valor != 10:
+					var total_en_mj = contar_cartas_mismo_valor_en_mj(valor)
+					var total_jugadas = otras_cartas.size()
+					var total_combinado = total_en_mj + total_jugadas
+					if total_combinado == 4:
+						limpiar_mj = true
+
+			# Luego se validan las jugadas y se insertan
+			if opcion in [0, 2, 4]:
+				for carta in jugada_ordenada:
 					descarte_dict.append(carta)
-					cartas_a_eliminar_de_mano.append(carta)
+					cartas_a_eliminar.append(carta)
 				jugada_valida = true
-
-			elif opcion == 1 or opcion == 3:
-				for carta in cartas_jugadas:
+			elif opcion in [1, 3]:
+				for carta in jugada_ordenada:
 					descarte_dict.append(carta)
-					cartas_a_eliminar_de_mano.append(carta)
+					cartas_a_eliminar.append(carta)
 				descarte_dict.clear()
 				jugada_valida = true
-
 			elif opcion == 5:
 				print("❌ La jugada no es válida (valor menor al MJ).")
-				jugada_valida = false
 
-			# Verificar si hay 4 del mismo valor (MJ + jugada)
-			if jugada_valida:
-				var valor = get_card_value(cartas_jugadas[0]["name"])
-				var total_iguales = contar_cartas_mismo_valor_en_mj(valor)
-				if total_iguales == 4:
-					print("✅ Se han jugado 4 cartas iguales. Vaciar MJ.")
-					descarte_dict.clear()
+			# Solo aquí, si se validó y era limpieza, se hace
+			if jugada_valida and limpiar_mj:
+				print("✅ Se han jugado 4 cartas iguales (excluyendo los 2 y 10). Vaciar MJ.")
+				descarte_dict.clear()
 
-			# Eliminar cartas de la mano
-			for carta in cartas_a_eliminar_de_mano:
+			# Eliminar cartas jugadas de la mano
+			for carta in cartas_a_eliminar:
 				mano.erase(carta)
 
-	# Enviar respuesta a todos los jugadores
+	# Enviar respuesta
 	if jugada_valida:
 		for jugador in jugadores:
 			Bridge.rpc_id(jugador["peer_id"], "respuesta_accept_juego", descarte_dict, jugadores)
 	else:
 		Bridge.rpc_id(peer_id, "respuesta_rechazada_juego", "NO PUEDES HACER ESO")
 
-	
-func validacion_jugada(carta):
-	var valor_carta = get_card_value(carta["name"])
+
+func validacion_jugada(carta, ignorar_mj = false):
+	var valor_carta = get_card_value(carta)
 	var ultima_carta_descarte = 0
-	
+
 	if descarte_dict.size() > 0:
 		var ultima_carta = descarte_dict[descarte_dict.size() - 1]
-		ultima_carta_descarte = get_card_value(ultima_carta["name"])
+		ultima_carta_descarte = get_card_value(ultima_carta)
 
 	if ultima_carta_descarte == 0:
-		print("JUGANDO LA(S) CARTA(S)")
+		print("JUGANDO LA(S) CARTA(S) — MJ vacío")
 		return 0
 	elif valor_carta == 10:
-		print("ELIMINANDO EL MONTO DE CARTAS")
+		print("ELIMINANDO EL MONTO DE CARTAS — carta es 10")
 		return 1
 	elif valor_carta == 2:
-		print("SE PUEDE TIRAR UNA CARTA MAS")
+		print("SE PUEDE TIRAR UNA CARTA MAS — carta es 2")
 		return 2
 	elif ultima_carta_descarte == 10:
-		print("ELIMINANDO LA CARTA INICIAL")
+		print("ELIMINANDO LA CARTA INICIAL — MJ es 10")
 		return 3
-	elif valor_carta >= ultima_carta_descarte:
-		print("JUGANDO LA(S) CARTA(S)")
+	elif ignorar_mj or valor_carta >= ultima_carta_descarte:
+		print("JUGANDO LA(S) CARTA(S) — cumple valor o se ignora MJ")
 		return 4
-	elif valor_carta < ultima_carta_descarte:
-		print("NO PUEDES JUGAR ESTA CARTA")
+	else:
+		print("NO PUEDES JUGAR ESTA CARTA — menor al MJ")
 		return 5
+
 
 func validar_cartas_iguales(cartas):
 	if cartas.size() == 0:
 		return false
-	var primer_valor = get_card_value(cartas[0]["name"])
+	var primer_valor = get_card_value(cartas[0])
 	for carta in cartas:
-		if get_card_value(carta["name"]) != primer_valor:
+		if get_card_value(carta) != primer_valor:
 			return false
 	return true
-	
+
+
 func contar_cartas_mismo_valor_en_mj(valor_objetivo):
+	if valor_objetivo == 2 or valor_objetivo == 10:
+		return 0
+
 	var contador = 0
 	for carta in descarte_dict:
-		if get_card_value(carta["name"]) == valor_objetivo:
+		if carta.has("value") and carta["value"] == valor_objetivo:
 			contador += 1
 	return contador
 
+
 func _ready():
-	print("--- INICIANDO PRUEBA DE 4 CARTAS IGUALES ---")
+	print("--- INICIANDO PRUEBA DESDE SERVIDOR ---")
 
-	# Simular un jugador
-	var jugador_prueba = {
-		"peer_id": 1,
-		"mano": [],
-		"cartas_abajo": [],
-		"cartas_arriba": [],
-		"nodo": null
-	}
+	var carta_1 = {"id": 1001, "name": "7 de clubs", "value": 7, "texture": ""}
+	var carta_2 = {"id": 1002, "name": "2 de hearts", "value": 7, "texture": ""}
+	var carta_3 = {"id": 1003, "name": "2 de spades", "value": 7, "texture": ""}
+	var carta_4 = {"id": 1004, "name": "7 de diamonds", "value": 7, "texture": ""}
+	var carta_5 = {"id": 1005, "name": "9 de diamonds", "value": 5, "texture": ""}
+	var carta_6 = {"id": 1006, "name": "2 de diamonds", "value": 2, "texture": ""}
+	var peer_id_falso = 1
 
-	# Crear 4 cartas del mismo valor
-	var carta1 = {"id": 201, "name": "7 de clubs", "texture": ""}
-	var carta2 = {"id": 202, "name": "7 de hearts", "texture": ""}
-	var carta3 = {"id": 203, "name": "7 de spades", "texture": ""}
-	var carta4 = {"id": 204, "name": "7 de diamonds", "texture": ""}
-	jugador_prueba["mano"].append_array([carta1, carta2, carta3, carta4])
+	jugadores = [
+		{
+			"peer_id": peer_id_falso,
+			"mano": [carta_1, carta_2, carta_3, carta_4, carta_6],
+			"cartas_abajo": [],
+			"cartas_arriba": [],
+			"nodo": null
+		}
+	]
 
-	# Añadir el jugador a la lista
-	jugadores.clear()
-	jugadores.append(jugador_prueba)
+	# MJ con valor más alto (para probar si se puede jugar con 2)
+	descarte_dict = [carta_5]
 
-	# Simular que el monto actual tiene varias cartas (simulando un MJ lleno)
-	descarte_dict.clear()
-	descarte_dict.append_array([
-	])
-
-	# Ejecutar la jugada con las 4 cartas iguales
-	var cartas_para_jugar = [201, 202, 203, 204]  # IDs de las cartas 7
-	play_card(1, cartas_para_jugar)
-
-	print("--- FIN DE LA PRUEBA DE 4 IGUALES ---")
+	# Jugamos 2 doses y dos 7s
+	var cartas_a_jugar = [1002, 1003, 1001,1006]
+	play_card(peer_id_falso, cartas_a_jugar)
+	print("Estado final MJ:", descarte_dict)
+	print("--- FIN DE LA PRUEBA ---")
